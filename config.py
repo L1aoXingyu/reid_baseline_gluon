@@ -37,6 +37,8 @@ class DefaultConfig(object):
     # model options
     model_name = 'softmax'  # softmax, triplet, softmax_triplet
     last_stride = 1
+    pretrained_model = '/home/test2/.mxnet/models/resnet50_v1-c940b1a0.params'
+    load_model = '/home/test2/mxnet-ckpt/'
 
     # miscs
     print_freq = 30

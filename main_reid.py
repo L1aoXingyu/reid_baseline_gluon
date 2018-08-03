@@ -70,7 +70,7 @@ def train(**kwargs):
     )
 
     print('initializing model ...')
-    model = get_baseline_model(dataset.num_train_pids, mx.gpu(0))
+    model = get_baseline_model(dataset.num_train_pids, mx.gpu(0), opt.pretrained_model)
 
     print('model size: {:.5f}M'.format(sum(p.data().size
                                            for p in model.collect_params().values()) / 1e6))
@@ -175,7 +175,7 @@ def test(**kwargs):
 
     print('loading model ...')
     model = get_baseline_model(dataset.num_train_pids, ctx)
-    model.load_parameters('/home/test2/mxnet-ckpt/market1501_softmax_triplet_gluon/model_best.params', ctx)
+    model.load_parameters(opt.load_model, ctx)
     print('model size: {:.5f}M'.format(sum(p.data().size
                                            for p in model.collect_params().values()) / 1e6))
 

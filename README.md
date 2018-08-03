@@ -10,10 +10,9 @@ We support
 1. `cd` to folder where you want to download this repo
 2. Run `git clone https://github.com/L1aoXingyu/reid_baseline.git`
 3. Install dependencies:
-    - [pytorch](https://pytorch.org/)
-    - torchvision
+    - [mxnet 1.2.1](http://mxnet.incubator.apache.org/versions/1.2.1/install/index.html)
     - tensorflow (for tensorboard)
-    - [tensorboardX](https://github.com/lanpa/tensorboardX)
+    - [MXBoard](https://github.com/awslabs/mxboard)
 4. Prepare dataset
     
     Create a directory to store reid datasets under this repo via
@@ -30,10 +29,10 @@ We support
     ```
 5. Prepare pretrained model if you don't have
     ```python
-    from torchvision import models
-    models.resnet50(pretrained=True)
+    from mxnet import gluon
+    gluon.model_zoo.vision.resnet50_v1(pretrained=True)
     ```
-    Then it will automatically download model in `~.torch/models/`, you should set this path in `config.py`
+    Then it will automatically download model in `~.mxnet/models/`, you should set this path in `config.py`
 
 ## Train
 You can run 

@@ -42,19 +42,6 @@ class ResNetBuilder(nn.HybridBlock):
         cls_score = self.classifier(feat)
         return cls_score, global_feat
 
-    # def get_optim_policy(self):
-    #     base_param_group = self.base.collect_params()
-    #     if self.num_classes is not None:
-    #         add_param_group = itertools.chain(self.bottleneck.collect_params(), self.classifier.collect_params())
-    #         return [
-    #             {'params': base_param_group},
-    #             {'params': add_param_group}
-    #         ]
-    #     else:
-    #         return [
-    #             {'params': base_param_group}
-    #         ]
-
 
 if __name__ == '__main__':
     net = ResNetBuilder(233)
