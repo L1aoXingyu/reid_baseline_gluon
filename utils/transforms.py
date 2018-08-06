@@ -11,7 +11,7 @@ from __future__ import unicode_literals
 
 import random
 
-from mxnet import image
+import mxnet as mx
 from mxnet.gluon.data.vision import transforms as T
 
 
@@ -25,7 +25,7 @@ class Random2DTranslation(object):
         p (float): probability of performing this transformation. Default: 0.5.
     """
 
-    def __init__(self, height, width, p=0.5, interpolation=2):
+    def __init__(self, height, width, p=0.5, interpolation=1):
         self.height = height
         self.width = width
         self.p = p
@@ -48,7 +48,7 @@ class Random2DTranslation(object):
         y_maxrange = new_height - self.height
         x1 = int(round(random.uniform(0, x_maxrange)))
         y1 = int(round(random.uniform(0, y_maxrange)))
-        croped_img = image.fixed_crop(resized_img, x1, y1, self.width, self.height)
+        croped_img = mx.image.fixed_crop(resized_img, x1, y1, self.width, self.height)
         return croped_img
 
 

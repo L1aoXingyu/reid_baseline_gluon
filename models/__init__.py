@@ -21,5 +21,5 @@ def get_baseline_model(num_classes, ctx, model_path=None):
     # params = model.base._collect_params_with_prefix()
     # for i in params:
     #     params[i]._load_init(state_dict[i], ctx)
-    model.hybridize()
+    model.hybridize(static_alloc=True, static_shape=True)
     return model

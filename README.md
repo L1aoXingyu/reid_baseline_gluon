@@ -8,9 +8,12 @@ We support
 
 ## Get Started
 1. `cd` to folder where you want to download this repo
-2. Run `git clone https://github.com/L1aoXingyu/reid_baseline.git`
+2. Run `git clone https://github.com/L1aoXingyu/reid_baseline_gluon.git`
 3. Install dependencies:
-    - [mxnet 1.2.1](http://mxnet.incubator.apache.org/versions/1.2.1/install/index.html)
+    - [mxnet 1.3.1](http://mxnet.incubator.apache.org/versions/1.2.1/install/index.html)
+    ```
+    pip install --pre mxnet-cu90
+    ```
     - tensorflow (for tensorboard)
     - [MXBoard](https://github.com/awslabs/mxboard)
 4. Prepare dataset
@@ -45,7 +48,8 @@ in `reid_baseline` folder if you want to train with softmax and triplet loss. Yo
 
 | loss | rank1 | map |
 | --- | --| ---|
-| softmax | 87.9% | 70.1% |
-| triplet | 88.8% | 74.8% | 
-|triplet + softmax | 92.0% | 78.1% |
+| softmax | 87.1% | 67.8% |
+| triplet | 88.2% | 73.7% | 
+|triplet + softmax | 90.4% | 76.4% |
 
+I find the mxnet.gluon results are a little bit lower than [pytorch](https://github.com/L1aoXingyu/reid_baseline) results, and I cannot get the reason. I would appreciate that if anyone can help me.
